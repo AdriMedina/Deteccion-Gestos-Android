@@ -21,6 +21,12 @@ public class MainActivity extends Activity {
 	boolean correcto = true;
 
 	
+	/**
+	 * Función Android para la creación de la actividad principal de la aplicación
+	 *
+	 * @param savedInstanceState 
+	 *
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,9 +37,22 @@ public class MainActivity extends Activity {
 	}
 	
 	
-	/*
-	 * FunciÃ³n que captura los eventos tÃ¡ctiles de la pantalla.
+	/**
+	 * Función propia de Android que captura los eventos táctiles de la pantalla.
+	 * Obtiene la acción de la función MotionEventCompat.getActionMasked().
+	 * Si el dedo está pulsando la pantalla (ACTION_DOWN):
+	 * 		guardamos las coordenadas de la pantalla en la que se ha pulsado.
+	 * Si el dedo se está deslizando sobre la pantalla (ACTION_MOVE):
+	 * 		comprobamos que el movimiento es correcto, es decir, que el dedo se desliza 
+	 * 		hacia arriba o hacia abajo.
+	 * Si el dedo se ha levantado de la pantalla (ACTION_UP):
+	 * 		si el movimiento ha sido correcto en ACTION_MOVE, entonces comprobaremos que ha habido un
+	 * 		deslizamiento lo suficientemente grande sobre el eje Y.
+	 * 
+	 * 
+	 * @param evento Objeto que captura el evento sobre la pantalla tactil
 	 * @see android.app.Activity#onTouchEvent(android.view.MotionEvent)
+	 * @return true 
 	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent evento)
